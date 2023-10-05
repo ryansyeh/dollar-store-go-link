@@ -23,8 +23,8 @@ executePopulateUrlField();
 
 
 const form = document.querySelector(".form-data");
-const actual_url = document.querySelector(".actual_url")
-const go_link = document.querySelector(".go_link")
+const actual_url = document.querySelector(".actual-url")
+const go_link = document.querySelector(".go-link")
 
 const createGoLink = async (actual_url, go_link) => {
     try {
