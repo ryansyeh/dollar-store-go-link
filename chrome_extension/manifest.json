@@ -13,7 +13,7 @@
         "webNavigation"
     ],
     "host_permissions": [
-        "http://127.0.0.1:5000/*"
+        "http://cheangmbrian.pythonanywhere.com/*"
     ],
     "background": {
         "service_worker": "service_worker.js",

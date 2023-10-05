@@ -28,7 +28,7 @@ const go_link = document.querySelector(".go_link")
 
 const createGoLink = async (actual_url, go_link) => {
     try {
-        const url = `http://127.0.0.1:5000/create`;
+        const url = `http://cheangmbrian.pythonanywhere.com/create`;
         const options = {
           method: "POST",
           headers: {
