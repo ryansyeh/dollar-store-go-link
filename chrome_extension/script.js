@@ -1,25 +1,16 @@
 // import axios from "axios"
 
 async function getCurrentTab() {
-    const tab = chrome.tabs.query({ active: true, currentWindow: true});
-    return tab;
+    return chrome.tabs.query({ active: true, currentWindow: true});
 }
 
-
-async function getCurrentUrl() {
-    // const activeTab = chrome.tabs.query({ active: true, currentWindow: true});
-    // console.log(activeTab[0]);
-    // const activeUrl = await activeTab[0].url
-    // console.log(activeUrl)
-    // document.querySelector(".actual_url").value = activeUrl
+async function populateUrlField() {
     const activeTab = await getCurrentTab();
-    const activeUrl = activeTab[0].url;
-    console.log({activeUrl});
-    document.querySelector(".actual_url").value = activeUrl
+    document.querySelector(".actual-url").value = activeTab[0].url;
 }
 
-const go = async () => await getCurrentUrl();
-go();
+const executePopulateUrlField = async () => await populateUrlField();
+executePopulateUrlField();
 // async function fetchData() {
 //     const res=await fetch ("http://127.0.0.1:5000/go_links");
 //     const record=await res.json();

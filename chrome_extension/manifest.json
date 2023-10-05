@@ -9,6 +9,7 @@
         "default_title": "Cedar GoLinks"
     },
     "permissions": [
+        "tabs",
         "webNavigation"
     ],
     "host_permissions": [

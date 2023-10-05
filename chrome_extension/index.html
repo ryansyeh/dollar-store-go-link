@@ -2,23 +2,8 @@
 <html>
 <head>
     <title>Index Page</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<style>
-.a {
-  margin: 20px;
-  padding: 20px;
-  width: 400px;
-  height: 200px;
-}
-.actual_url {
-  width: 300px;
-  align: right;
-}
-.go_link {
-  width: 300px;
-  align: right;
-}
-</style>
 <!--    <body>
       <h3>Go Links</h3>
       <a href="/">ADD</a>
@@ -39,19 +24,23 @@
             </tbody>
       </table>
    </body> -->
-<body>
- <div class="a">
-  <h3>Go Link form</h3>
+<body class="a">
+ <div>
+     <div class="header-container">
+        <h1>Create a go link!</h1>
+     </div>
   <form class="form-data">
-    <div>
-     <label>Actual URL</label>
-     <input type="text" class="actual_url" placeholder="https://www.google.com/maps">
+    <div class="form-field">
+     <label class="label-text">Actual URL: </label>
+     <input type="text" class="actual-url url-input" placeholder="https://www.google.com/maps">
     </div>
-    <div>
-     <label>Go Link</label>
-     <input type="text" class= "go_link" placeholder="go/maps">
+    <div class="form-field">
+     <label class="label-text">Go Link: </label>
+     <input type="text" class="go-link url-input" placeholder="e.g. go/maps">
     </div>
-     <button type="submit">Create Go Link</button>
+    <div class="button-container">
+        <button class="submit-button" type="submit">Create go link</button>
+    </div>
   </form>
 </div>
 </body>
