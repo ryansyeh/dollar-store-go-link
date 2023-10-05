@@ -80,6 +80,11 @@ def go_link():
     else:
         return redirect('/')
 
+@app.route('/go/<link>', methods=["GET"])
+def go(link):
+    actual_url = GoLink.query.filter(GoLink.go_link == f"go/{link}").first().actual_url
+    return jsonify(data=[{"actual_url": actual_url}])
+
 @app.route('/go_links', methods=["GET"])
 def get_go_links():
     # data = GoLink.query.all()

@@ -1,14 +1,35 @@
 // import axios from "axios"
 
-async function fetchData() {
-    const res=await fetch ("http://127.0.0.1:5000/go_links");
-    const record=await res.json();
-    console.log(record);
-    document.getElementById("id").innerHTML=record.data[0].id;
-    document.getElementById("actual_url").innerHTML=record.data[0].actual_url;
-    document.getElementById("go_link").innerHTML=record.data[0].go_link;
+async function getCurrentTab() {
+    const tab = chrome.tabs.query({ active: true, currentWindow: true});
+    return tab;
 }
-fetchData();
+
+
+async function getCurrentUrl() {
+    // const activeTab = chrome.tabs.query({ active: true, currentWindow: true});
+    // console.log(activeTab[0]);
+    // const activeUrl = await activeTab[0].url
+    // console.log(activeUrl)
+    // document.querySelector(".actual_url").value = activeUrl
+    const activeTab = await getCurrentTab();
+    const activeUrl = activeTab[0].url;
+    console.log({activeUrl});
+    document.querySelector(".actual_url").value = activeUrl
+}
+
+const go = async () => await getCurrentUrl();
+go();
+// async function fetchData() {
+//     const res=await fetch ("http://127.0.0.1:5000/go_links");
+//     const record=await res.json();
+//     document.getElementById("id").innerHTML=record.data[0].id;
+//     document.getElementById("actual_url").innerHTML=record.data[0].actual_url;
+//     document.getElementById("go_link").innerHTML=record.data[0].go_link;
+// };
+// fetchData();
+
+
 
 const form = document.querySelector(".form-data");
 const actual_url = document.querySelector(".actual_url")
