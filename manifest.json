@@ -8,9 +8,13 @@
     "default_icon": "images/hello_extensions.png"
   },
   "permissions": [
-    "tabs"
+    "webNavigation"
   ],
   "host_permissions": [
     "https://developer.chrome.com/*"
-  ]
+  ],
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  }
 }
