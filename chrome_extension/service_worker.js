@@ -6,7 +6,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
 
     if (activeUrl.startsWith('https://go/')) {
         const link = activeUrl.replace('https://go/','')
-        const res = await fetch(`http://127.0.0.1:5000/go/${link}`)
+        const res = await fetch(`http://cheangmbrian.pythonanywhere.com/go/${link}`)
         console.log(res)
         const record = await res.json();
         console.log(record)
