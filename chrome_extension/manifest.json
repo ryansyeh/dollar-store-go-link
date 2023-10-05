@@ -1,0 +1,21 @@
+{
+    "name": "Cedar GoLinks",
+    "version": "1.0.0",
+    "description": "Hackathon Project",
+    "manifest_version": 3,
+    "author": "Brian Cheang, Ryan Yeh",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Cedar GoLinks"
+    },
+    "permissions": [
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "http://127.0.0.1:5000/*"
+    ],
+    "background": {
+        "service_worker": "service_worker.js",
+        "type": "module"
+    }
+}
