@@ -2,57 +2,53 @@
 <html>
 <head>
     <title>Index Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <style>
 .a {
-  margin: 20px;
   padding: 20px;
-  width: 400px;
-  height: 200px;
+  width: 650px;
+  height: 100px;
 }
 .actual_url {
-  width: 300px;
+  width: 600px;
   align: right;
 }
 .go_link {
-  width: 300px;
+  width: 600px;
   align: right;
 }
+.mb-20 {
+  margin-bottom: 20px;
+}
 </style>
-<!--    <body>
-      <h3>Go Links</h3>
-      <a href="/">ADD</a>
-      <br>
-      <table>
-         <thead>
-            <th>Id</th>
-            <th>Go Link</th>
-            <th>Actual URL</th>
-            <th>#</th>
-         </thead>
-         <tbody>
-            <tr>
-                <td id="id"></td>
-                <td id="go_link"></td>
-                <td id="actual_url"></td>
-            </tr>
-            </tbody>
-      </table>
-   </body> -->
 <body>
- <div class="a">
-  <h3>Go Link form</h3>
-  <form class="form-data">
-    <div>
-     <label>Actual URL</label>
-     <input type="text" class="actual_url" placeholder="https://www.google.com/maps">
+ <div>
+  <form class="form-data form-group a" style="visibility: visible;">
+    <h3 class="mb-20">Create a Go Link</h3>
+    <div class="mb-20">
+     <label>URL</label>
+     <input type="text" class="actual_url form-control" placeholder="https://www.google.com/maps">
     </div>
-    <div>
+    <div class="mb-20">
      <label>Go Link</label>
-     <input type="text" class= "go_link" placeholder="go/maps">
+     <input type="text" class= "go_link form-control" placeholder='i.e. "go/maker-okr"'>
     </div>
-     <button type="submit">Create Go Link</button>
+     <button type="submit" class="btn btn-primary mb-20">Create Go Link</button>
+     <img src="images/wizard_1.jpg" height="300">
   </form>
+</div>
+<div class="success container" style="visibility: hidden;">
+    <div class="row">
+        <div class="col-xs-6">
+            <h3>Successfully created Go Link</h3>
+            <h3 class="created_go_link"></h3>
+            <button id="copy_link_btn" class="btn btn-primary mb-20">Copy Link</button>
+        </div>
+        <div class="col-xs-6">
+            <img src="images/wizard_2.jpg" height="300">
+        </div>
+    </div>
 </div>
 </body>
 <script src="script.js"></script>

@@ -52,11 +52,13 @@ def create():
         data = request.get_json()
         actual_url = data['actual_url']
         go_link = data['go_link']
-        p = GoLink(actual_url=actual_url, go_link=go_link)
-        db.session.add(p)
-        db.session.commit()
-        return redirect('/success.html')
-    
+        if actual_url != '' and go_link != '':
+            p = GoLink(actual_url=actual_url, go_link=go_link)
+            db.session.add(p)
+            db.session.commit()
+            return jsonify(data=[{"go_link": go_link, "success": True}])
+        else:
+            return jsonify(data=[{"success": False}])
 
 # function to add go links
 @app.route('/add', methods=["POST"])
@@ -76,9 +78,9 @@ def go_link():
         p = GoLink(actual_url=actual_url, go_link=go_link)
         db.session.add(p)
         db.session.commit()
-        return redirect('/')
+        return jsonify(data=[{"go_link": go_link, "success": True}])
     else:
-        return redirect('/')
+        return jsonify(data=[{"success": False}])
 
 @app.route('/go/<link>', methods=["GET"])
 def go(link):

@@ -1,18 +1,11 @@
-// import axios from "axios"
-
 async function getCurrentTab() {
     const tab = chrome.tabs.query({ active: true, currentWindow: true});
     return tab;
 }
 
-
 async function getCurrentUrl() {
-    // const activeTab = chrome.tabs.query({ active: true, currentWindow: true});
-    // console.log(activeTab[0]);
-    // const activeUrl = await activeTab[0].url
-    // console.log(activeUrl)
-    // document.querySelector(".actual_url").value = activeUrl
     const activeTab = await getCurrentTab();
+    console.log(activeTab)
     const activeUrl = activeTab[0].url;
     console.log({activeUrl});
     document.querySelector(".actual_url").value = activeUrl
@@ -20,20 +13,12 @@ async function getCurrentUrl() {
 
 const go = async () => await getCurrentUrl();
 go();
-// async function fetchData() {
-//     const res=await fetch ("http://127.0.0.1:5000/go_links");
-//     const record=await res.json();
-//     document.getElementById("id").innerHTML=record.data[0].id;
-//     document.getElementById("actual_url").innerHTML=record.data[0].actual_url;
-//     document.getElementById("go_link").innerHTML=record.data[0].go_link;
-// };
-// fetchData();
-
-
 
 const form = document.querySelector(".form-data");
 const actual_url = document.querySelector(".actual_url")
 const go_link = document.querySelector(".go_link")
+const success_screen = document.querySelector(".success")
+const created_go_link = document.querySelector(".created_go_link")
 
 const createGoLink = async (actual_url, go_link) => {
     try {
@@ -49,14 +34,8 @@ const createGoLink = async (actual_url, go_link) => {
             actual_url: actual_url,
           })
         };
-        fetch(url, options)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            chrome.browserAction.setPopup({
-                popup:"/add_data"
-            });
-        });
+        response = await fetch(url, options);
+        return response;
     }
     catch (error) {
         console.log("ERROR")
@@ -66,10 +45,36 @@ const createGoLink = async (actual_url, go_link) => {
 
 const handleSubmit = async e => {
     e.preventDefault();
-    console.log("about to call CreateGoLink");
-    createGoLink(actual_url.value, go_link.value);
-    console.log(actual_url.value);
-    console.log(go_link.value);
+    const response = await createGoLink(actual_url.value, go_link.value);
+    console.log(response)
+    const record = await response.json();
+    console.log(record)
+    const success = record.data[0].success
+    if (success == true){
+        const go_link = record.data[0].go_link
+        success_screen.style.visibility="visible"
+        created_go_link.innerHTML += `<a href="https://${go_link}" target="_blank" id="link_to_copy">${go_link}</p>`
+        form.style.visibility="hidden"
+    }
+}
+
+const copyLink = async () => {
+  // Get the text field
+  var copyText = await document.getElementById("link_to_copy");
+
+  console.log(copyText)
+  console.log(copyText.href)
+
+
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.href).then(() => {
+    alert("successfully copied");
+  })
+
+  // // Alert the copied text
+  // alert("Copied the text: " + copyText.href);
 }
 
 form.addEventListener("submit", e => handleSubmit(e));
+document.getElementById("copy_link_btn").addEventListener("click", copyLink);

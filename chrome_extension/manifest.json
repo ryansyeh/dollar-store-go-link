@@ -6,10 +6,17 @@
     "author": "Brian Cheang, Ryan Yeh",
     "action":{
         "default_popup": "index.html",
+        "default_icon": {
+            "16": "images/favicon-16x16.png",
+            "32": "images/favicon-32x32.png"
+        },
         "default_title": "Cedar GoLinks"
     },
     "permissions": [
-        "webNavigation"
+        "webNavigation",
+        "tabs",
+        "activeTab",
+        "clipboardWrite"
     ],
     "host_permissions": [
         "http://cheangmbrian.pythonanywhere.com/*"
