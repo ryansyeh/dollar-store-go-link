@@ -53,7 +53,7 @@ const handleSubmit = async e => {
     if (success == true){
         const go_link = record.data[0].go_link
         success_screen.style.display="block"
-        created_go_link.innerHTML += `<a href="https://${go_link}" target="_blank" id="link_to_copy">${go_link}</p>`
+        created_go_link.innerHTML += `<a href="https://${go_link}" target="_blank" id="link_to_copy">https://${go_link}</p>`
         original.style.display="none"
     }
 }
@@ -69,11 +69,8 @@ const copyLink = async () => {
 
    // Copy the text inside the text field
   navigator.clipboard.writeText(copyText.href).then(() => {
-    alert("successfully copied");
+    alert(`successfully copied ${copyText.href}`);
   })
-
-  // // Alert the copied text
-  // alert("Copied the text: " + copyText.href);
 }
 
 form.addEventListener("submit", e => handleSubmit(e));
