@@ -14,6 +14,7 @@ async function getCurrentUrl() {
 const go = async () => await getCurrentUrl();
 go();
 
+const original = document.querySelector(".original");
 const form = document.querySelector(".form-data");
 const actual_url = document.querySelector(".actual_url")
 const go_link = document.querySelector(".go_link")
@@ -52,9 +53,9 @@ const handleSubmit = async e => {
     const success = record.data[0].success
     if (success == true){
         const go_link = record.data[0].go_link
-        success_screen.style.visibility="visible"
+        success_screen.style.display="block"
         created_go_link.innerHTML += `<a href="https://${go_link}" target="_blank" id="link_to_copy">${go_link}</p>`
-        form.style.visibility="hidden"
+        original.style.display="none"
     }
 }
 

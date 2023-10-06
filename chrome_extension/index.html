@@ -11,42 +11,51 @@
   height: 100px;
 }
 .actual_url {
-  width: 600px;
+  width: 300px;
   align: right;
 }
 .go_link {
-  width: 600px;
+  width: 300px;
   align: right;
 }
 .mb-20 {
   margin-bottom: 20px;
 }
+.h-fixed {
+    height: 400px;
+}
 </style>
 <body>
- <div>
-  <form class="form-data form-group a" style="visibility: visible;">
-    <h3 class="mb-20">Create a Go Link</h3>
-    <div class="mb-20">
-     <label>URL</label>
-     <input type="text" class="actual_url form-control" placeholder="https://www.google.com/maps">
-    </div>
-    <div class="mb-20">
-     <label>Go Link</label>
-     <input type="text" class= "go_link form-control" placeholder='i.e. "go/maker-okr"'>
-    </div>
-     <button type="submit" class="btn btn-primary mb-20">Create Go Link</button>
-     <img src="images/wizard_1.jpg" height="300">
-  </form>
-</div>
-<div class="success container" style="visibility: hidden;">
+ <div class="original container h-fixed" style="display: block;">
     <div class="row">
         <div class="col-xs-6">
-            <h3>Successfully created Go Link</h3>
-            <h3 class="created_go_link"></h3>
+            <form class="form-data form-group a">
+                <h3 class="mb-20">Create a Go Link</h3>
+                <div class="mb-20">
+                 <label>URL</label>
+                 <input type="text" class="actual_url form-control" placeholder="https://www.google.com/maps">
+                </div>
+                <div class="mb-20">
+                 <label>Go Link</label>
+                 <input type="text" class= "go_link form-control" placeholder='i.e. "go/maker-okr"'>
+                </div>
+                 <button type="submit" class="btn btn-primary mb-20">Go!</button>
+              </form>
+        </div>
+        <div class="col-xs-6">
+            <img src="images/wizard_1.jpg" height="300">
+        </div>
+    </div>
+</div>
+<div class="success container a h-fixed" style="display: none;">
+    <div class="row">
+        <div class="col-xs-6">
+            <h3>Successfully Go!ed</h3>
             <button id="copy_link_btn" class="btn btn-primary mb-20">Copy Link</button>
         </div>
         <div class="col-xs-6">
-            <img src="images/wizard_2.jpg" height="300">
+            <h3 class="created_go_link"></h3>
+            <img src="images/wizard_2.jpg" class="mb-20" height="300">
         </div>
     </div>
 </div>
