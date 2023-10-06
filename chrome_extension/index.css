@@ -1,0 +1,41 @@
+.a {
+    font-family: "atlas-grotesk-regular", "Helvetica Neue", sans-serif;
+    padding: 10px 20px;
+    width: 400px;
+    background-color: #fafafa;
+}
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    .url-input {
+        width: 300px;
+        padding: 4px;
+        border-radius: 4px;
+        border-width: 1px;
+        background-color: #eeeef3;
+    }
+    .label-text {
+        font-size: 1.2em;
+    }
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+}
+.header-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 12px;
+}
+.submit-button {
+    border-radius: 8px;
+    padding: 6px 16px;
+    box-shadow: none;
+    border-width: 1px;
+    background-color: #e2fcf9;
+}

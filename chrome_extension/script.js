@@ -1,6 +1,5 @@
 async function getCurrentTab() {
-    const tab = chrome.tabs.query({ active: true, currentWindow: true});
-    return tab;
+    return chrome.tabs.query({ active: true, currentWindow: true});
 }
 
 async function getCurrentUrl() {
